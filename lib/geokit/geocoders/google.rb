@@ -68,7 +68,7 @@ module Geokit
           url_with_key = query_string + "&key=#{api_key}"
           "#{protocol}://maps.googleapis.com" + url_with_key
         else
-          "#{protocol}://maps.google.com" + query_string
+          (ENV['GOOGLE_MAPS_PROXY'] || "#{protocol}://maps.google.com") + query_string
         end
       end
 
